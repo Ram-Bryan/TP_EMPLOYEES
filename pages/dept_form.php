@@ -35,29 +35,48 @@
 ?>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?= $editing ? "Modifier" : "Ajouter" ?> un département</title>
+        <link rel="stylesheet" href="../assets/css/style.css">
     </head>
     <body>
-    <p><a href="index.php">&larr; Retour aux départements</a></p>
-    <h1><?= $editing ? "Modifier le département $dept_no" : "Ajouter un département" ?></h1>
+    <nav class="navbar">
+        <ul>
+            <li class="brand">Employés DB</li>
+            <li><a href="index.php">Départements</a></li>
+            <li><a href="search.php">Rechercher</a></li>
+            <li><a href="stats.php">Statistiques</a></li>
+            <li><a href="emp_form.php">Ajouter un employé</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <p><a href="index.php" class="btn btn-secondary">&larr; Retour aux départements</a></p>
+        <h1><?= $editing ? "Modifier le département $dept_no" : "Ajouter un département" ?></h1>
 
-    <?php if ($success) { ?>
-        <p style="color:green;">Enregistré.</p>
-    <?php } ?>
-    <?php if ($error !== '') { ?>
-        <p style="color:red;"><?= htmlspecialchars($error) ?></p>
-    <?php } ?>
+        <?php if ($success) { ?>
+            <div class="alert alert-success">Enregistré.</div>
+        <?php } ?>
+        <?php if ($error !== '') { ?>
+            <div class="alert alert-error"><?= htmlspecialchars($error) ?></div>
+        <?php } ?>
 
-    <form method="post" action="dept_form.php<?= $editing ? '?dept_no=' . urlencode($dept_no) : '' ?>">
-        <input type="hidden" name="mode" value="<?= $editing ? 'edit' : 'add' ?>">
-        <p>
-            Numéro (4 car. max) :
-            <input type="text" name="dept_no" maxlength="4"
-                   value="<?= htmlspecialchars($dept_no) ?>"
-                   <?= $editing ? 'readonly' : '' ?>>
-        </p>
-        <p>Nom : <input type="text" name="dept_name" value="<?= htmlspecialchars($dept_name) ?>"></p>
-        <p><input type="submit" value="<?= $editing ? 'Modifier' : 'Ajouter' ?>"></p>
-    </form>
+        <div class="card">
+            <form method="post" action="dept_form.php<?= $editing ? '?dept_no=' . urlencode($dept_no) : '' ?>">
+                <input type="hidden" name="mode" value="<?= $editing ? 'edit' : 'add' ?>">
+                <div class="form-group">
+                    <label>Numéro (4 car. max) :</label>
+                    <input type="text" class="form-control" name="dept_no" maxlength="4"
+                           value="<?= htmlspecialchars($dept_no) ?>"
+                           <?= $editing ? 'readonly' : '' ?>>
+                </div>
+                <div class="form-group">
+                    <label>Nom :</label>
+                    <input type="text" class="form-control" name="dept_name" value="<?= htmlspecialchars($dept_name) ?>">
+                </div>
+                <button type="submit" class="btn"><?= $editing ? 'Modifier' : 'Ajouter' ?></button>
+            </form>
+        </div>
+    </div>
     </body>
 </html>

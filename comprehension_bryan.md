@@ -39,7 +39,7 @@ function get_current_department($emp_no)
 
 function change_departemnet:
     - update: change le departemnet d'un employe
-    - insert: on insert dans dept_emp pour la table d association de departement et d'employe. Or on a compris que ON DUPLICATE KEY UPDATE  permet de ne pas insere si la ligne existe deja. on update seulemet la lignes. Nous pensons que c'est l'equivalent d'un TRIGGER en PL DB (postgres par exemple.)
+    - insert: on insert dans dept_emp pour la table d association de departement et d'employe. Or on a compris que ON DUPLICATE KEY UPDATE  permet de ne pas insere si la ligne existe deja. on update seulemet la lignes. Nous pensons que c'est l'equivalent d'un IF ELSE
 
 function get_current_manager():
     - retourne le manager actuel d'un departement.
