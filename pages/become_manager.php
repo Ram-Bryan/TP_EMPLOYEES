@@ -11,7 +11,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && $current_dept) {
         $start = $_POST['from_date'] ?? '';
         $manager = get_current_manager($current_dept['dept_no']);
-
+        
         if ($start === '') {
             $error = "Veuillez saisir une date de début.";
         } elseif ($manager && $start < $manager['from_date']) {
