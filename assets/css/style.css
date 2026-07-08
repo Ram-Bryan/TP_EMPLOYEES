@@ -1,12 +1,9 @@
 /* =====================================================================
-   FEUILLE DE STYLE — THÈME CORPORATE
-   ---------------------------------------------------------------------
-   Style clair, bleu, dense – adapté à une application de gestion.
-   Toutes les classes (.navbar, .table, .btn, .card, etc.) sont
-   compatibles avec le template HTML.
+   THÈME 1 — CORPORATE
+   Style clair, bleu, dense : adapté à une application de gestion.
+   Mêmes classes que les autres thèmes (.navbar .table .btn .card ...).
    ===================================================================== */
 
-/* ---- 1. Variables de thème ----------------------------------------- */
 
 :root {
     --color-primary:   #0f4c81;
@@ -23,7 +20,6 @@
     --max-width: 1000px;
 }
 
-/* ---- 2. Base ------------------------------------------------------- */
 
 * { box-sizing: border-box; }
 
@@ -46,7 +42,6 @@ h1 { font-size: 1.6rem; }
     padding: var(--space);
 }
 
-/* ---- 3. Menu / barre de navigation (pleine largeur, fond bleu) ---- */
 
 .navbar {
     background: var(--color-primary);
@@ -81,7 +76,6 @@ h1 { font-size: 1.6rem; }
     text-decoration: none;
 }
 
-/* ---- 4. Boutons ---------------------------------------------------- */
 
 .btn {
     display: inline-block;
@@ -109,7 +103,6 @@ h1 { font-size: 1.6rem; }
     background: var(--color-bg);
 }
 
-/* ---- 5. Tableaux (bordures complètes) ------------------------------ */
 
 .table {
     width: 100%;
@@ -134,7 +127,6 @@ h1 { font-size: 1.6rem; }
     background: #f4f8fc;
 }
 
-/* ---- 6. Listes ----------------------------------------------------- */
 
 .list {
     list-style: none;
@@ -153,7 +145,6 @@ h1 { font-size: 1.6rem; }
     border-bottom: none;
 }
 
-/* ---- 7. Cartes ----------------------------------------------------- */
 
 .card {
     background: var(--color-surface);
@@ -168,7 +159,6 @@ h1 { font-size: 1.6rem; }
     margin-top: 0;
 }
 
-/* ---- 8. Formulaires ------------------------------------------------ */
 
 .form-group {
     margin-bottom: var(--space);
@@ -206,7 +196,6 @@ h1 { font-size: 1.6rem; }
     width: auto;
 }
 
-/* ---- 9. Messages (alertes) ----------------------------------------- */
 
 .alert {
     padding: 10px 14px;
@@ -227,7 +216,6 @@ h1 { font-size: 1.6rem; }
     border-color: #f1c4bd;
 }
 
-/* ---- 10. Pagination ------------------------------------------------ */
 
 .pagination {
     display: flex;
@@ -254,7 +242,6 @@ h1 { font-size: 1.6rem; }
     border-color: var(--color-primary);
 }
 
-/* ---- 11. Utilitaires ----------------------------------------------- */
 
 .text-muted {
     color: var(--color-muted);

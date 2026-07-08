@@ -321,22 +321,6 @@ function search_employees($dept_no, $name, $age_min, $age_max)
     // S'il n'y a aucun filtre, "1=1" garde une clause WHERE valide.
     $where = empty($conditions) ? '1=1' : implode(' AND ', $conditions);
 
-    // $sql = "SELECT DISTINCT
-    //                e.emp_no,
-    //                e.first_name,
-    //                e.last_name,
-    //                e.gender,
-    //                TIMESTAMPDIFF(YEAR, e.birth_date, CURDATE()) AS age,
-    //                d.dept_name
-    //         FROM employees e
-    //         INNER JOIN dept_emp de
-    //                 ON de.emp_no = e.emp_no AND de.to_date = '9999-01-01'
-    //         INNER JOIN departments d
-    //                 ON d.dept_no = de.dept_no
-    //         WHERE $where
-    //         ORDER BY e.last_name, e.first_name
-    //         LIMIT 200";
-
     $sql = "SELECT DISTINCT
                    e.emp_no,
                    e.first_name,
@@ -350,9 +334,24 @@ function search_employees($dept_no, $name, $age_min, $age_max)
             INNER JOIN departments d
                     ON d.dept_no = de.dept_no
             WHERE $where
-            ORDER BY d.dept_name ASC
+            ORDER BY e.last_name, e.first_name
             LIMIT 200";
 
+    // $sql = "SELECT DISTINCT
+    //                e.emp_no,
+    //                e.first_name,
+    //                e.last_name,
+    //                e.gender,
+    //                TIMESTAMPDIFF(YEAR, e.birth_date, CURDATE()) AS age,
+    //                d.dept_name
+    //         FROM employees e
+    //         INNER JOIN dept_emp de
+    //                 ON de.emp_no = e.emp_no AND de.to_date = '9999-01-01'
+    //         INNER JOIN departments d
+    //                 ON d.dept_no = de.dept_no
+    //         WHERE $where
+    //         ORDER BY d.dept_name ASC
+    //         LIMIT 200";
 
     return get_all_lines($sql);
 }
